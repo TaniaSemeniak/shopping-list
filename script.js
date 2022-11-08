@@ -7,3 +7,24 @@
 /* Если кликнуть повторно уже на зачеркнутый, он снова становится обычным */
 
 /* Очищать input после добавления нового элемента в список */
+
+const input = document.querySelector('#input');
+const items = document.querySelector('.items');
+const itemsContainer = document.querySelector('#items');
+
+input.addEventListener('keydown', function(event) {
+   const itemText = input.value;
+
+   const newItem = document.createElement('div');
+   /*newItem.classList.add('item');*/
+   newItem.textContent = itemText;
+
+   newItem.addEventListener('click', function() {
+    newItem.classList.toggle('done');
+   })
+   
+    if (event.key == 'Enter' /*&& itemText != ''*/) {
+    itemsContainer.append(newItem);
+    input.value = '';
+   } 
+});
