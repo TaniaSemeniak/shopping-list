@@ -13,15 +13,35 @@ const itemsContainer = document.querySelector('#items');
 
 input.addEventListener('keydown', function (event) {
     const itemText = input.value;
-    
     const newItem = document.createElement('div');
     newItem.textContent = itemText;
+
     newItem.addEventListener('click', function () {
         newItem.classList.toggle('done');
     })
 
-    if (event.key == 'Enter' && itemText != '') {
+    if (event.key == 'Enter' && itemText.trim() != '') {
         itemsContainer.append(newItem);
         input.value = '';
     }
 });
+
+/*
+const input = document.querySelector('#input');
+const itemsContainer = document.querySelector('.items');
+
+input.addEventListener('keydown', function(event) {
+  const groceryText = input.value;
+  const newGrocery = document.createElement('div');
+  newGrocery.textContent = groceryText;
+
+  if (event.key == 'Enter' && groceryText.trim() != '') {
+    itemsContainer.append(newGrocery);
+    input.value = '';
+  }
+
+  newGrocery.onclick = function() {
+    newGrocery.classList.toggle('done');
+  }
+});
+*
